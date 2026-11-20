@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Namaste Beta</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBF7EF;--card:#FFFDF9;--ink:#1F2547;--mute:#6B6F8A;--vio:#4B2E83;--lav:#E8E1F6;--sage:#A9BFA8;--sagebg:#E6EEE3;--peach:#F6D5C2;--peachbg:#FCEBE0;--red:#B3362F;--redbg:#F9E1DE;--line:#EBE4D6;--sh:0 6px 20px rgba(75,46,131,.08);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15162B;--card:#1F2040;--ink:#F4F0E8;--mute:#A9ACC6;--vio:#C4B0F2;--lav:#2E2B57;--sagebg:#243229;--peachbg:#3A2A2A;--redbg:#40201F;--red:#FF9B93;--line:#2E3058;--sh:none}}
+:root[data-theme="dark"]{--bg:#15162B;--card:#1F2040;--ink:#F4F0E8;--mute:#A9ACC6;--vio:#C4B0F2;--lav:#2E2B57;--sagebg:#243229;--peachbg:#3A2A2A;--redbg:#40201F;--red:#FF9B93;--line:#2E3058;--sh:none}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg);color:var(--ink);font-family:Hind,'Noto Sans Devanagari',system-ui,sans-serif;font-size:17px;line-height:1.45}
+body{max-width:430px;margin:0 auto;min-height:100vh;position:relative}
+body.big{font-size:20px}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--vio);outline-offset:2px}
+h1{font-size:1.65rem;line-height:1.2;font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.15rem;font-weight:600}
+.sm{font-size:.85rem;color:var(--mute)}
+.scr{padding:22px 20px 110px;animation:in .3s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}}
+.card{background:var(--card);border-radius:22px;padding:16px;box-shadow:var(--sh);border:1px solid var(--line);margin-top:14px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:56px;border-radius:18px;background:var(--vio);color:#fff;font-weight:600;font-size:1.05rem;padding:0 18px}
+:root[data-theme="dark"] .btn,@media(prefers-color-scheme:dark){}
+.btn.sec{background:var(--lav);color:var(--vio)}
+.btn.line{background:none;border:2px solid var(--line);color:var(--ink)}
+.btn.sos{background:var(--red);color:#fff}
+.row{display:flex;align-items:center;gap:12px}.sp{flex:1}
+.av{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-weight:700;background:var(--peach);color:#5A2E1B;flex:none}
+.av.s{background:var(--sage);color:#1F3A25}.av.l{background:var(--lav);color:var(--vio)}
+.pill{font-size:.78rem;font-weight:600;padding:3px 10px;border-radius:99px;background:var(--lav);color:var(--vio)}
+.pill.ok{background:var(--sagebg);color:#2F5A3A}.pill.miss{background:var(--peachbg);color:#9A4A22}.pill.ai{background:var(--vio);color:#fff}
+:root[data-theme="dark"] .pill.ok{color:#B9D8BF}:root[data-theme="dark"] .pill.miss{color:#F6B895}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:var(--card);border-top:1px solid var(--line);display:flex;padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
+.nav button{flex:1;min-height:58px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:.74rem;color:var(--mute);border-radius:16px}
+.nav button.on{color:var(--vio);font-weight:700}.nav button.on svg{background:var(--lav)}
+.nav svg{width:44px;height:28px;padding:3px 10px;border-radius:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.task{display:flex;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}.task:first-child{border:0}
+.tm{width:60px;font-weight:600;color:var(--vio);font-size:.95rem}
+.sosfab{position:fixed;right:max(14px,calc(50% - 201px));bottom:calc(86px + env(safe-area-inset-bottom,0px));width:58px;height:58px;border-radius:50%;background:var(--red);color:#fff;font-weight:700;box-shadow:0 8px 20px rgba(179,54,47,.4);z-index:5}
+.chip{padding:10px 16px;border-radius:99px;background:var(--lav);color:var(--vio);font-weight:600;min-height:44px}
+.opt{width:100%;text-align:left;padding:16px;border-radius:20px;background:var(--card);border:2px solid var(--line);margin-top:12px;min-height:64px}
+.opt.on{border-color:var(--vio);background:var(--lav)}
+input{font:inherit;width:100%;min-height:60px;border-radius:18px;border:2px solid var(--line);background:var(--card);color:var(--ink);padding:0 16px;font-size:1.5rem;letter-spacing:.3em;text-align:center}
+.err{background:var(--redbg);color:var(--red);padding:12px 14px;border-radius:14px;margin-top:12px;font-weight:500}
+.bub{max-width:88%;padding:12px 14px;border-radius:20px;margin-top:10px}
+.bub.b{background:var(--lav);border-bottom-left-radius:6px}.bub.u{background:var(--vio);color:#fff;margin-left:auto;border-bottom-right-radius:6px}
+.sheet{position:fixed;inset:0;background:rgba(20,20,40,.55);display:flex;align-items:flex-end;justify-content:center;z-index:20}
+.sheet>div{background:var(--bg);width:100%;max-width:430px;border-radius:28px 28px 0 0;padding:24px 20px calc(24px + env(safe-area-inset-bottom,0px));animation:in .25s ease}
+.tog{width:56px;height:32px;border-radius:99px;background:var(--line);position:relative;flex:none}.tog i{position:absolute;top:4px;left:4px;width:24px;height:24px;border-radius:50%;background:#fff;transition:.2s}.tog.on{background:var(--vio)}.tog.on i{left:28px}
+.sk{height:64px;border-radius:16px;background:linear-gradient(90deg,var(--line),var(--lav),var(--line));background-size:200% 100%;animation:sk 1.2s infinite;margin-top:12px}@keyframes sk{to{background-position:-200% 0}}
+.ring{width:132px;height:132px;border-radius:50%;margin:8px auto;background:var(--lav);display:grid;place-items:center;animation:br 4s ease-in-out infinite}
+@keyframes br{50%{transform:scale(1.06);box-shadow:0 0 0 14px rgba(75,46,131,.08)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.hero{height:230px;border-radius:28px;background:var(--lav);display:grid;place-items:center;margin:20px 0}
+</style></head><body>
+<div id="app"></div><div id="ov"></div>
+<script>
+const T={
+en:{hi:'Namaste',today:"Today's routine",done:'Done',later:'Later',snooze:'Snooze 10 min',home:'Home',sched:'Schedule',beta:'Beta',fam:'Family',set:'Settings',sos:'SOS',next:'Continue',missed:'Missed',all:'All done for today',emptyT:'Nothing left today',emptyS:'Add a reminder for medicine, meals or a walk.',add:'Add reminder'},
+hi:{hi:'नमस्ते',today:'आज की दिनचर्या',done:'हो गया',later:'बाद में',snooze:'10 मिनट बाद',home:'होम',sched:'समय-सारणी',beta:'बेटा',fam:'परिवार',set:'सेटिंग',sos:'मदद',next:'आगे बढ़ें',missed:'छूटा हुआ',all:'आज सब हो गया',emptyT:'आज कुछ बाकी नहीं',emptyS:'दवाई, खाने या सैर का रिमाइंडर जोड़ें।',add:'रिमाइंडर जोड़ें'}};
+const S={step:'welcome',lang:'en',role:'child',tab:'home',code:'',err:'',load:false,aiOn:true,voice:'Ananya (family voice)',tasks:[
+{id:1,t:'6:30',n:'Morning walk',nh:'सुबह की सैर',s:'miss'},
+{id:2,t:'8:00',n:'Blood pressure tablet',nh:'बीपी की दवाई',s:'done'},
+{id:3,t:'9:00',n:'Breakfast',nh:'नाश्ता',s:'done'},
+{id:4,t:'11:00',n:'Call Ananya',nh:'अनन्या को फ़ोन',s:'next'},
+{id:5,t:'1:30',n:'Lunch',nh:'दोपहर का खाना',s:'next'},
+{id:6,t:'2:00',n:'Sugar tablet',nh:'शुगर की दवाई',s:'next'}],
+set:{quiet:true,snooze:true,loc:false,share:true,big:false,remind:'15'}};
+const t=k=>T[S.lang][k]||T.en[k];
+const tn=x=>S.lang==='hi'?x.nh:x.n;
+const ic={home:'<path d="M4 11l8-7 8 7v8a1 1 0 01-1 1h-4v-6H9v6H5a1 1 0 01-1-1z"/>',sched:'<rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M4 10h16"/>',beta:'<path d="M12 21s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.600-7 10-7 10z"/>',fam:'<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.200"/><path d="M3 20c0-3.500 2.700-6 6-6s6 2.500 6 6M16 14c3 0 5 2 5 5"/>',set:'<circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.600 5.600l2.100 2.100M16.300 16.300l2.100 2.100M5.600 18.400l2.100-2.100M16.300 7.700l2.100-2.100"/>'};
+const $=s=>document.getElementById(s);
+const isP=()=>S.role==='parent';
+const nm=()=>isP()?'Sharda ji':'Ananya';
+function go(k,v){S[k]=v;render()}
+function pair(){const c=S.code.trim().toUpperCase();if(c.length<6){S.err=S.lang==='hi'?'कोड 6 अक्षर का है। फिर से देखें।':'The code has 6 characters. Check it and try again.';return render()}
+ if(c==='OFFLINE'){S.err=S.lang==='hi'?'इंटरनेट नहीं है। कनेक्शन जाँचकर दोबारा कोशिश करें।':'No internet connection. Check your network and try again.';return render()}
+ S.err='';S.load=true;render();setTimeout(()=>{S.load=false;S.step='app';S.tab='home';S.set.big=isP();render()},1200)}
+function mark(id,s){const x=S.tasks.find(a=>a.id===id);x.s=s;toast(s==='done'?(S.lang==='hi'?'हो गया — परिवार को बता दिया':'Marked done — family notified'):(S.lang==='hi'?'10 मिनट बाद याद दिलाएँगे':'Reminding again in 10 minutes'));render()}
+function toast(m){const e=document.createElement('div');e.textContent=m;e.setAttribute('role','status');e.style.cssText='position:fixed;left:50%;transform:translateX(-50%);bottom:calc(96px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:99px;z-index:30;font-weight:500;max-width:92%';document.body.appendChild(e);setTimeout(()=>e.remove(),2200)}
+function sheet(h){$('ov').innerHTML='<div class="sheet" onclick="if(event.target===this)closeS()"><div role="dialog" aria-modal="true">'+h+'</div></div>'}
+function closeS(){$('ov').innerHTML=''}
+let tm;
+function sosSheet(){let n=5;const hi=S.lang==='hi';
+ sheet(`<h1>${hi?'क्या यह आपातकाल है?':'Is this an emergency?'}</h1><p class="sm" style="margin:8px 0 18px">${hi?'आपातकाल में ही दबाएँ। छूटी दवाई के लिए "बाद में" चुनें।':'Use this only for real emergencies. For a missed task, use Later instead.'}</p><button class="btn sos" onclick="sendSOS()">${hi?'हाँ, परिवार को बुलाएँ':'Yes, alert my family'}</button><button class="btn line" style="margin-top:10px" onclick="closeS()">${hi?'नहीं, वापस जाएँ':'No, go back'}</button>`)}
+function sendSOS(){const hi=S.lang==='hi';sheet(`<div style="text-align:center"><div class="ring" style="background:var(--redbg);color:var(--red);font-size:2.4rem">✓</div><h1>${hi?'मदद भेज दी गई':'Alert sent'}</h1><p style="margin:8px 0 18px">${hi?'अनन्या, राजेश और 1 आपातकालीन संपर्क को सूचना और आपकी लोकेशन भेजी गई।':'Ananya, Rajesh and 1 emergency contact were notified with your location.'}</p><button class="btn sec" onclick="closeS()">${hi?'ठीक है':'Close'}</button></div>`)}
+function addSheet(){const hi=S.lang==='hi';sheet(`<h1>${t('add')}</h1><div class="row" style="flex-wrap:wrap;margin:14px 0">${['Medicine','Meal','Walk','Call'].map(x=>`<button class="chip" onclick="addT('${x}')">${x}</button>`).join('')}</div><button class="btn line" onclick="closeS()">${hi?'रद्द करें':'Cancel'}</button>`)}
+function addT(x){S.tasks.push({id:Date.now(),t:'5:00',n:x+' reminder',nh:x+' रिमाइंडर',s:'next'});closeS();toast(S.lang==='hi'?'रिमाइंडर जुड़ गया':'Reminder added');render()}
+function chat(q){S.chat=S.chat||[];S.chat.push(['u',q]);const r={'Remind Papa':'Done. I will remind Papa about his 2:00 sugar tablet in Hindi, in your voice.','He missed his walk':'Rajesh missed his 6:30 walk. I will ask once more at 7:30. This is not an emergency.','Call Mummy':'Starting a call to Mummy in Pune.'};S.chat.push(['b',r[q]]);render()}
+function tog(k){S.set[k]=!S.set[k];if(k==='big')document.body.classList.toggle('big',S.set.big);render()}
+function theme(){const r=document.documentElement;r.dataset.theme=r.dataset.theme==='dark'?'light':'dark'}
+
+function welcome(){const hi=S.lang==='hi';return `<div class="scr" style="padding-bottom:30px"><div class="hero"><svg width="150" height="150" viewBox="0 0 150 150" fill="none" aria-hidden="true"><circle cx="75" cy="75" r="62" fill="#F6D5C2"/><circle cx="75" cy="75" r="40" fill="#4B2E83"/><path d="M75 100s-20-12-20-27a11 11 0 0120-6 11 11 0 0120 6c0 15-20 27-20 27z" fill="#FBF7EF"/></svg></div><h1>Namaste Beta</h1><p style="margin:10px 0 28px;color:var(--mute)">${hi?'दूरी कितनी भी हो, परिवार की देखभाल आसान।':'Caring for family is easier, wherever they are.'}</p><button class="btn" onclick="go('step','lang')">${t('next')}</button></div>`}
+function langS(){return `<div class="scr"><h1>Choose your language<br><span style="font-weight:500">अपनी भाषा चुनें</span></h1>${[['en','English'],['hi','हिन्दी']].map(([k,v])=>`<button class="opt ${S.lang===k?'on':''}" onclick="go('lang','${k}')"><b style="font-size:1.2rem">${v}</b></button>`).join('')}<button class="btn" style="margin-top:24px" onclick="go('step','role')">${t('next')}</button></div>`}
+function roleS(){const hi=S.lang==='hi';return `<div class="scr"><h1>${hi?'आप कौन हैं?':'Who is using this phone?'}</h1>${[['parent',hi?'मैं माता/पिता हूँ':'I am a parent',hi?'बड़े अक्षर, आसान बटन, आवाज़ वाले रिमाइंडर':'Large text, simple buttons, voice reminders'],['child',hi?'मैं बेटा/बेटी हूँ':'I am a son or daughter',hi?'परिवार की गतिविधि देखें और रिमाइंडर बनाएँ':"See family activity and set up reminders"]].map(([k,a,b])=>`<button class="opt ${S.role===k?'on':''}" onclick="go('role','${k}')"><b style="font-size:1.15rem">${a}</b><div class="sm">${b}</div></button>`).join('')}<button class="btn" style="margin-top:24px" onclick="go('step','pair')">${t('next')}</button></div>`}
+function pairS(){const hi=S.lang==='hi';return `<div class="scr"><h1>${hi?'परिवार से जुड़ें':'Join your family'}</h1><p style="margin:8px 0 20px;color:var(--mute)">${hi?'परिवार के सदस्य से 6 अक्षर का निमंत्रण कोड लें।':'Enter the 6-character invitation code from your family member. It works once and expires in 24 hours.'}</p><input aria-label="Invitation code" maxlength="6" placeholder="······" value="${S.code}" oninput="S.code=this.value" ${S.load?'disabled':''}>${S.err?`<div class="err" role="alert">${S.err}</div>`:''}<p class="sm" style="margin:10px 0 20px">${hi?'आज़माने के लिए कोई भी 6 अक्षर लिखें, जैसे FAMILY':'To try the demo, enter any 6 characters, such as FAMILY.'}</p><button class="btn" onclick="pair()" ${S.load?'disabled':''}>${S.load?(hi?'जोड़ रहे हैं…':'Connecting…'):(hi?'कोड जाँचें':'Join family')}</button></div>`}
+
+function tasksHtml(list){return list.map(x=>`<div class="task"><div class="tm">${x.t}</div><div style="flex:1"><b>${tn(x)}</b></div>${x.s==='done'?`<span class="pill ok">${t('done')}</span>`:x.s==='miss'?`<span class="pill miss">${t('missed')}</span>`:'<span class="sm">●</span>'}</div>`).join('')}
+function home(){const hi=S.lang==='hi';
+ if(S.load)return `<div class="scr"><div class="sk"></div><div class="sk"></div><div class="sk"></div></div>`;
+ const nx=S.tasks.find(x=>x.s==='next'),dn=S.tasks.filter(x=>x.s==='done').length,ms=S.tasks.filter(x=>x.s==='miss').length;
+ if(isP())return `<div class="scr"><h1>${t('hi')}, ${nm()}</h1><p class="sm">${hi?'आज शुक्रवार, 20 नवंबर':'Friday, 20 November'}</p>
+ ${nx?`<div class="card" style="background:var(--lav);border:0"><div class="sm">${hi?'अब करना है':'Next up'} · ${nx.t}</div><h1 style="margin:6px 0 16px;font-size:2rem">${tn(nx)}</h1><button class="btn" onclick="mark(${nx.id},'done')">✓ ${t('done')}</button><button class="btn line" style="margin-top:10px" onclick="mark(${nx.id},'next')">${t('snooze')}</button></div>`:`<div class="card"><h2>${t('all')}</h2></div>`}
+ <div class="card"><div class="row"><div class="av">A</div><div class="sp"><b>${hi?'अनन्या आपके साथ जुड़ी है':'Ananya is connected'}</b><div class="sm">${hi?'बेंगलुरु · अभी सक्रिय':'Bengaluru · active now'}</div></div></div></div>
+ <div class="card"><h2>${t('today')}</h2><div style="margin-top:8px">${tasksHtml(S.tasks)}</div></div>
+ <button class="btn sos" style="margin-top:16px;min-height:72px;font-size:1.3rem" onclick="sosSheet()">${hi?'मदद चाहिए (SOS)':'I need help (SOS)'}</button></div>`;
+ return `<div class="scr"><div class="row"><div class="sp"><h1>${t('hi')}, ${nm()}</h1><p class="sm">${hi?'शुक्रवार, 20 नवंबर':'Friday, 20 November'}</p></div><div class="av l">A</div></div>
+ <div class="card"><div class="row"><div class="av s">S</div><div class="sp"><b>Sharda Sharma · Pune</b><div class="sm">${hi?'आखिरी गतिविधि: 8:02 बजे दवाई ली':'Last seen: took tablet at 8:02'}</div></div><span class="pill ok">${hi?'जुड़ी हैं':'Connected'}</span></div>
+ <div class="row" style="margin-top:14px"><div class="sp" style="text-align:center"><h1>${dn}</h1><div class="sm">${t('done')}</div></div><div class="sp" style="text-align:center"><h1>${ms}</h1><div class="sm">${t('missed')}</div></div><div class="sp" style="text-align:center"><h1>${S.tasks.length-dn-ms}</h1><div class="sm">${hi?'बाकी':'Upcoming'}</div></div></div></div>
+ ${ms?`<div class="card" style="background:var(--peachbg)"><span class="pill miss">${hi?'छूटा हुआ — आपातकाल नहीं':'Missed task — not an emergency'}</span><p style="margin:8px 0 12px"><b>Morning walk</b> ${hi?'अभी नहीं हुई। Beta 7:30 बजे दोबारा पूछेगा।':'was not marked done. Beta will ask again at 7:30.'}</p><button class="btn sec" onclick="go('tab','beta')">${hi?'Beta से बात करें':'Ask Beta to follow up'}</button></div>`:''}
+ <div class="card"><h2>${t('today')}</h2><div style="margin-top:8px">${tasksHtml(S.tasks)}</div></div></div><button class="sosfab" aria-label="SOS" onclick="sosSheet()">${t('sos')}</button>`}
+function sched(){const hi=S.lang==='hi';const open=S.tasks.filter(x=>x.s==='next');
+ return `<div class="scr"><div class="row"><h1 class="sp">${t('sched')}</h1><button class="chip" onclick="addSheet()">+ ${hi?'जोड़ें':'Add'}</button></div>
+ ${S.tasks.length?'':`<div class="card" style="text-align:center;padding:32px 16px"><h2>${t('emptyT')}</h2><p class="sm" style="margin:6px 0 16px">${t('emptyS')}</p><button class="btn" onclick="addSheet()">${t('add')}</button></div>`}
+ ${S.tasks.map(x=>`<div class="card"><div class="row"><div class="tm">${x.t}</div><div class="sp"><b>${tn(x)}</b><div class="sm">${hi?'रोज़':'Repeats daily'}</div></div>${x.s==='done'?`<span class="pill ok">${t('done')}</span>`:x.s==='miss'?`<span class="pill miss">${t('missed')}</span>`:''}</div>
+ ${x.s!=='done'?`<div class="row" style="margin-top:12px"><button class="btn" style="min-height:48px" onclick="mark(${x.id},'done')">${t('done')}</button><button class="btn sec" style="min-height:48px" onclick="mark(${x.id},'next')">${t('later')}</button></div>`:''}</div>`).join('')}
+ ${S.tasks.length&&!open.length?`<div class="card" style="text-align:center"><b>${t('all')}</b></div>`:''}</div>`}
+function beta(){const hi=S.lang==='hi';const c=S.chat||[];
+ return `<div class="scr"><h1>Beta</h1><p class="sm"><span class="pill ai">AI</span> ${hi?'यह एआई की आवाज़ है, असली व्यक्ति की नहीं।':'This is an AI voice, not a real person.'}</p>
+ <div class="card" style="text-align:center"><div class="ring"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--vio)" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></div><b>${hi?'अगला आवाज़ रिमाइंडर 11:00 बजे':'Next voice reminder at 11:00'}</b><div class="sm">${hi?'आवाज़: अनन्या (परिवार की आवाज़, सहमति के साथ)':'Voice: Ananya, family voice, recorded with consent'}</div></div>
+ <div class="card"><span class="pill ai">AI</span><div class="bub b" style="margin-top:8px;max-width:100%">${isP()?(hi?'नमस्ते मम्मी, 11 बजे हैं। क्या आपने अनन्या को फ़ोन कर लिया?':'Namaste Mummy, it is 11. Shall we call Ananya now?'):(hi?'शारदा जी ने 6:30 की सैर नहीं की। मैं एक बार धीरे से फिर पूछूँगा।':'Sharda ji has not marked her 6:30 walk. I will gently ask once more.')}</div>
+ ${c.map(m=>`<div class="bub ${m[0]}">${m[1]}</div>`).join('')}
+ <div class="row" style="flex-wrap:wrap;margin-top:14px">${['Remind Papa','He missed his walk','Call Mummy'].map(q=>`<button class="chip" onclick="chat('${q}')">${q}</button>`).join('')}</div></div>
+ <button class="btn sec" style="margin-top:14px" onclick="toast('${hi?'आवाज़ सुनने के लिए माइक्रोफ़ोन अनुमति चाहिए':'Allow the microphone to talk to Beta'}')">${hi?'बोलकर बताएँ':'Speak to Beta'}</button></div>`}
+function fam(){const hi=S.lang==='hi';const m=[['S','Sharda Sharma',hi?'माँ · पुणे':'Mother · Pune','av s','ok',hi?'सक्रिय':'Active'],['R','Rajesh Sharma',hi?'पिता · लखनऊ':'Father · Lucknow','av','miss',hi?'सैर छूटी':'Missed walk'],['A','Ananya Sharma',hi?'बेटी · बेंगलुरु':'Daughter · Bengaluru','av l','ok',hi?'आप':'You'],['K','Kabir Sharma',hi?'पोता · दिल्ली':'Grandson · Delhi','av l','',hi?'आमंत्रित':'Invited']];
+ return `<div class="scr"><h1>${t('fam')}</h1>${m.map(x=>`<div class="card"><div class="row"><div class="${x[3]}">${x[0]}</div><div class="sp"><b>${x[1]}</b><div class="sm">${x[2]}</div></div><span class="pill ${x[4]}">${x[5]}</span></div></div>`).join('')}
+ <div class="card"><h2>${hi?'आपातकालीन संपर्क':'Emergency contacts'}</h2><div class="row" style="margin-top:10px"><div class="av">D</div><div class="sp"><b>Dr. Mehra</b><div class="sm">${hi?'पारिवारिक डॉक्टर':'Family doctor'}</div></div></div></div>
+ <button class="btn" style="margin-top:16px" onclick="sheet('<h1>${hi?'निमंत्रण कोड':'Invitation code'}</h1><div class=ring style=width:auto;height:90px;border-radius:22px;font-size:2rem;letter-spacing:.3em;font-weight:700;color:var(--vio)>NB7K2Q</div><p class=sm style=text-align:center;margin-bottom:14px>${hi?'एक बार चलेगा, 24 घंटे में खत्म':'Works once. Expires in 24 hours.'}</p><button class=\\'btn\\' onclick=closeS()>${hi?'ठीक है':'Done'}</button>')">${hi?'सदस्य जोड़ें':'Invite a family member'}</button></div>`}
+function setg(){const hi=S.lang==='hi';const r=(k,a,b)=>`<div class="row" style="padding:12px 0;border-top:1px solid var(--line)"><div class="sp"><b>${a}</b><div class="sm">${b}</div></div><button class="tog ${S.set[k]?'on':''}" role="switch" aria-checked="${S.set[k]}" aria-label="${a}" onclick="tog('${k}')"><i></i></button></div>`;
+ return `<div class="scr"><h1>${t('set')}</h1><div class="card"><h2>${hi?'रिमाइंडर':'Reminders'}</h2><div class="row" style="margin:10px 0;flex-wrap:wrap">${['5','15','30'].map(v=>`<button class="chip" style="${S.set.remind===v?'background:var(--vio);color:#fff':''}" onclick="S.set.remind='${v}';render()">${v} ${hi?'मिनट':'min'}</button>`).join('')}</div><div class="sm">${hi?'छूटने पर फिर पूछने का अंतर':'Wait before following up on a missed task'}</div>${r('snooze',hi?'बाद में करने का विकल्प':'Allow snooze',hi?'हर बार 10 मिनट':'10 minutes each time')}${r('quiet',hi?'शांत समय':'Quiet hours',hi?'रात 10 से सुबह 6 · केवल SOS चलेगा':'10 pm to 6 am · only SOS comes through')}</div>
+ <div class="card"><h2>${hi?'आवाज़ और भाषा':'Voice and language'}</h2><div class="row" style="margin:10px 0"><span class="sp">${S.voice}</span><span class="pill ai">AI</span></div><div class="row"><button class="chip" onclick="go('lang','${hi?'en':'hi'}')">${hi?'Switch to English':'हिन्दी में बदलें'}</button></div></div>
+ <div class="card"><h2>${hi?'गोपनीयता':'Privacy'}</h2>${r('loc',hi?'लोकेशन साझा करें':'Share location',hi?'केवल SOS के समय':'Only when SOS is sent')}${r('share',hi?'परिवार को गतिविधि दिखाएँ':'Share activity with family',hi?'कौन सी दवाई/काम हुआ':'Which tasks were done')}${r('big',hi?'बड़े अक्षर':'Larger text','')}</div>
+ <div class="card"><h2>${hi?'खाता':'Account'}</h2><div class="row" style="margin-top:10px;flex-wrap:wrap"><button class="chip" onclick="go('role','${isP()?'child':'parent'}');S.set.big=isP();document.body.classList.toggle('big',S.set.big);render()">${hi?'देखें: '+(isP()?'बच्चे':'माता-पिता'):'Preview as '+(isP()?'child':'parent')}</button><button class="chip" onclick="theme()">${hi?'डार्क मोड':'Dark mode'}</button><button class="chip" onclick="S.step='welcome';render()">${hi?'लॉग आउट':'Log out'}</button></div></div></div>`}
+function render(){const a=$('app');const F={welcome,lang:langS,role:roleS,pair:pairS};
+ document.documentElement.lang=S.lang;
+ if(S.step!=='app'){a.innerHTML=F[S.step]();return}
+ const V={home,sched,beta,fam,set:setg};
+ a.innerHTML=V[S.tab]()+`<nav class="nav" aria-label="Main">${['home','sched','beta','fam','set'].map(k=>`<button class="${S.tab===k?'on':''}" aria-current="${S.tab===k}" onclick="go('tab','${k}')"><svg viewBox="0 0 24 24">${ic[k]}</svg>${t(k)}</button>`).join('')}</nav>`}
+render();
+</script></body></html>
